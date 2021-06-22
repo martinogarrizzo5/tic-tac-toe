@@ -6,6 +6,7 @@ var grid = [
 ];
 var freeCells = grid.length * grid.length; // number of free cells
 var isGameOver = false;
+var winnerPlayer = "";
 var gridHTML = '<div class="grid"><div class="grid__col"></div><div class="grid__col"></div><div class="grid__col"></div><div class="grid__col"></div><div class="grid__col"></div><div class="grid__col"></div><div class="grid__col"></div><div class="grid__col"></div><div class="grid__col"></div></div>';
 var buttonHTML = '<button class="btn" id="game-btn">Challenge The Death</button>';
 var gridCells = document.getElementsByClassName("grid__col"); // get grid cells reference
@@ -34,6 +35,7 @@ function startGame() {
                     if (isXWinner) {
                         console.log("X is the Winner");
                         isGameOver = true;
+                        winnerPlayer = "X";
                         endGame();
                         return;
                     }
@@ -55,9 +57,14 @@ function startGame() {
                     if (isOWinner) {
                         console.log("O is the winner!");
                         isGameOver = true;
+                        winnerPlayer = "O";
                         endGame();
                         return;
                     }
+                }
+                console.log("free cells: ", freeCells);
+                if (freeCells <= 0) {
+                    endGame();
                 }
             }
         });
@@ -68,9 +75,24 @@ function startGame() {
     }
 }
 function endGame() {
+    var UserWinText = "You won, you escaped death";
+    var UserLostText = "Lost in the darkness";
+    var UserTieText = "Death is waiting for you!";
     if (isGameOver) {
-        container.innerHTML +=
-            '<div class="game-over"><h3 class="title">Hai vinto</h3><button id="play-again-button">Play Again</button></div>';
-        var playAgainButton = document.getElementById("play-again-button");
+        container.innerHTML += "<div class=\"game-over\"><h3 class=\"title\">" + (winnerPlayer === "X" ? UserWinText : UserLostText) + "</h3><button class=\"btn\" id=\"play-again-button\">Play Again</button></div>";
     }
+    else {
+        container.innerHTML += "<div class=\"game-over\"><h3 class=\"title\">" + UserTieText + "</h3><button class=\"btn\" id=\"play-again-button\">Play Again</button></div>";
+    }
+    var playAgainButton = document.getElementById("play-again-button");
+    playAgainButton === null || playAgainButton === void 0 ? void 0 : playAgainButton.addEventListener("click", function () {
+        isGameOver = false;
+        freeCells = grid.length * grid.length;
+        grid = [
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""],
+        ];
+        startGame();
+    });
 }

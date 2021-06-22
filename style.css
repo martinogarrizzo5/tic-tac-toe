@@ -14,6 +14,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    background-image: url(./background.jpg);
+    background-size: cover;
 }
 
 .title {
@@ -21,18 +24,39 @@ body {
     font-weight: bold;
     font-family: "Permanent Marker", cursive;
     margin-bottom: 20px;
+
+    color: rgb(255, 0, 85);
+    letter-spacing: 2px;
 }
 
 .body {
     flex: 1;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+.glass {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: rgb(0, 8, 255, 25%);
+
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    padding: 40px;
+}
+
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .grid {
@@ -120,4 +144,12 @@ body {
         #c3a50b 47%,
         #401bad 78%
     );
+}
+
+.game-over {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 30px;
 }
