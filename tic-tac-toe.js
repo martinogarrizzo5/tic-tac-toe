@@ -75,9 +75,9 @@ function startGame() {
     }
 }
 function endGame() {
-    var UserWinText = "You won, you escaped death";
-    var UserLostText = "Lost in the darkness";
-    var UserTieText = "Death is waiting for you!";
+    var UserWinText = "You won!";
+    var UserLostText = "Game over";
+    var UserTieText = "No winner";
     if (isGameOver) {
         container.innerHTML += "<div class=\"game-over\"><h3 class=\"title\">" + (winnerPlayer === "X" ? UserWinText : UserLostText) + "</h3><button class=\"btn\" id=\"play-again-button\">Play Again</button></div>";
     }

@@ -93,9 +93,9 @@ function startGame() {
 }
 
 function endGame() {
-    const UserWinText = "You won, you escaped death";
-    const UserLostText = "Lost in the darkness";
-    const UserTieText = "Death is waiting for you!";
+    const UserWinText = "You won!";
+    const UserLostText = "Game over";
+    const UserTieText = "No winner";
 
     if (isGameOver) {
         container!.innerHTML += `<div class="game-over"><h3 class="title">${
