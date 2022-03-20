@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Audiowide&family=Sriracha&display=swap"
-            rel="stylesheet"
-        />
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
 
-        <link rel="stylesheet" href="style.css" />
-        <title>Tic Tac Toe!</title>
-    </head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Sriracha&display=swap" rel="stylesheet" />
 
-    <body>
-        <div class="body">
-            <h1 class="title">GLOW TRIS</h1>
-            <div class="container" id="game-container"></div>
+    <link rel="stylesheet" href="style.css" />
+    <title>Tic Tac Toe!</title>
+</head>
+
+<body>
+    <div class="body">
+        <h1 class="title">GLOW TRIS</h1>
+        <div class="container" id="game-container">
+            <div class="grid"></div>
+            <button class="btn" id="game-btn" onclick="startGame()">Play Now</button>
+            <button class="btn hidden" id="play-again-button" onclick="playAgain()">Play Again</button>
         </div>
+    </div>
 
-        <footer class="footer">
-            &copy; 2021 Martin Meneghetti feat. Dj Morry
-        </footer>
+    <footer class="footer">
+        &copy; 2021 Martin Meneghetti feat. Dj Morry
+    </footer>
 
-        <script
-            type="text/javascript"
-            src="./scripts/checkers.js"
-            defer
-        ></script>
-        <script type="text/javascript" src="tic-tac-toe.js" defer></script>
-    </body>
+    <script type="text/javascript" src="./scripts/gridChecker.js" defer></script>
+    <script type="text/javascript" src="./scripts/computerStrategy.js" defer></script>
+    <script type="text/javascript" src="tic-tac-toe.js" defer></script>
+</body>
+
 </html>

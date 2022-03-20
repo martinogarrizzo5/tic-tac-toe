@@ -1,7 +1,7 @@
 "use strict";
 // check single column
 function checkColumn(grid, colIndex, sign) {
-    for (var i = 0; i < grid.length; i++) {
+    for (let i = 0; i < grid.length; i++) {
         if (grid[i][colIndex] !== sign) {
             return false;
         }
@@ -10,7 +10,7 @@ function checkColumn(grid, colIndex, sign) {
 }
 // check single row
 function checkRow(grid, rowIndex, sign) {
-    for (var i = 0; i < grid.length; i++) {
+    for (let i = 0; i < grid.length; i++) {
         if (grid[rowIndex][i] !== sign) {
             return false;
         }
@@ -19,8 +19,8 @@ function checkRow(grid, rowIndex, sign) {
 }
 // check right diagonal
 function checkRightDiagonal(grid, sign) {
-    var i = 0;
-    var j = grid.length - 1;
+    let i = 0;
+    let j = grid.length - 1;
     while (i < grid.length && j >= 0) {
         if (grid[i][j] !== sign) {
             return false;
@@ -32,8 +32,8 @@ function checkRightDiagonal(grid, sign) {
 }
 // check left diagonal
 function checkLeftDiagonal(grid, sign) {
-    var i = 0;
-    var j = 0;
+    let i = 0;
+    let j = 0;
     while (i < grid.length && j < grid.length) {
         if (grid[i][j] !== sign) {
             return false;
@@ -49,7 +49,7 @@ function checkDiagonals(grid, sign) {
 }
 // check all rows and columns
 function checkRowsAndColumns(grid, sign) {
-    for (var i = 0; i < grid.length; i++) {
+    for (let i = 0; i < grid.length; i++) {
         if (checkColumn(grid, i, sign) || checkRow(grid, i, sign)) {
             return true;
         }
