@@ -62,37 +62,61 @@ function findWinningPos(grid: string[][], sign: string) {
   // check rows
   for (let i = 0; i < grid.length; i++) {
     let signsCount = 0;
-    let gap = [i, 0];
+    let gap = [-1, -1];
     for (let j = 0; j < grid[i].length; j++) {
       if (grid[i][j] === sign) {
         signsCount++;
-      } else {
-        gap[1] = j;
+      } else if (grid[i][j] === "") {
+        gap = [i, j];
       }
     }
-    if (signsCount === grid.length - 1) {
-      if (grid[gap[0]][gap[1]] === "") {
-        return gap;
-      }
+    if (signsCount === grid.length - 1 && gap[0] !== -1) {
+      return gap;
     }
   }
 
   // check cols
   for (let i = 0; i < grid.length; i++) {
     let signsCount = 0;
-    let gap = [0, i];
+    let gap = [-1, -1];
     for (let j = 0; j < grid[i].length; j++) {
       if (grid[j][i] == sign) {
         signsCount++;
-      } else {
-        gap[0] = j;
+      } else if (grid[j][i] === "") {
+        gap = [j, i];
       }
     }
-    if (signsCount === grid[i].length - 1) {
-      if (grid[gap[0]][gap[1]] === "") {
-        return gap;
-      }
+    if (signsCount === grid[i].length - 1 && gap[0] !== -1) {
+      return gap;
     }
+  }
+
+  // check left diagonal
+  let signsCount = 0;
+  let gap = [-1, -1];
+  for (let i = 0; i < grid.length; i++) {
+    if (grid[i][i] === sign) {
+      signsCount++;
+    } else if (grid[i][i] === "") {
+      gap = [i, i];
+    }
+  }
+  if (signsCount === grid.length - 1 && gap[0] !== -1) {
+    return gap;
+  }
+
+  // check right diagonal
+  signsCount = 0;
+  gap = [-1, -1];
+  for (let i = 0; i < grid.length; i++) {
+    if (grid[i][grid.length - 1 - i] === sign) {
+      signsCount++;
+    } else if (grid[i][grid.length - 1 - i] === "") {
+      gap = [i, grid.length - 1 - i];
+    }
+  }
+  if (signsCount === grid.length - 1 && gap[0] !== -1) {
+    return gap;
   }
 
   return [-1, -1];
